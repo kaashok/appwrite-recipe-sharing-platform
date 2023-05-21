@@ -6,10 +6,10 @@ import { ReceipeViewComponent } from './components/receipe-view/receipe-view.com
 import { AuthGuard } from './services/auth.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: ReceipeViewComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'recipe-view', component: ReceipeViewComponent, canActivate: [AuthGuard] }
+  { path: 'recipe-view', component: ReceipeViewComponent }
 ];
 
 @NgModule({
