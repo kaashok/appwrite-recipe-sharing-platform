@@ -1,6 +1,6 @@
 <nav class="navbar bg-dark navbar-expand-lg">
     <div class="container-fluid">
-        <span class="navbar-brand nav-font-color">Online Recipe Sharing Platform</span>
+        <a [routerLink] = "['/recipe-view']" class="navbar-brand nav-font-color">Online Recipe Sharing Platform</a>
         <button mat-raised-button type="submit" (click)="logout()"><span class="material-icons">logout</span></button>
     </div>
 </nav>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </mat-card-header>
-                    <mat-card-content>
+                    <mat-card-content class="receipe-list">
                         <mat-list>
                             <mat-list-item *ngFor="let item of filteredDataList" (click)="selectItem(item)"
                                 [class.selected]="selectedItem === item" style="color:black">
@@ -61,7 +61,7 @@
 
 
                     </mat-card-header>
-                    <mat-card-content *ngIf="selectedItem!==null" class="row d-flex">
+                    <mat-card-content *ngIf="selectedItem!==null" class="row d-flex receipe-details">
                         <div class="col-md-6">
                             <h3 class="custom-font">Ingredients: </h3>
                             <span style="white-space:pre-wrap;">{{selectedItem.ingredients}}</span>

@@ -73,7 +73,7 @@ export class ReceipeViewComponent {
   }
 
   logout() {
-    this.appWriteService.currentUser.next('');
+    this.appWriteService.updateCurrentUser('')
     this.router.navigate(['/login']);
   }
 }

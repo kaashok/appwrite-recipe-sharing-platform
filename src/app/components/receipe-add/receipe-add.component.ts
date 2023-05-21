@@ -15,7 +15,7 @@ export class ReceipeAddComponent {
   recipeForm: FormGroup;
   recipeOptions: string[] = RecipeTypeArray
 
-  constructor(private appWriteService: AppWriteService, private dialogRef: MatDialogRef<ReceipeAddComponent>, private dialog: MatDialog) {
+  constructor(private appWriteService: AppWriteService, private addRecipeDialogRef: MatDialogRef<ReceipeAddComponent>, private messageDialog: MatDialog) {
     this.recipeForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       nonVeg: new FormControl(false, [Validators.required]),
@@ -29,7 +29,7 @@ export class ReceipeAddComponent {
     return this.recipeForm.controls[controlName];
   }
 
-  addRecipe() {
+  async addRecipe() {
     if (this.recipeForm.invalid) { return }
 
     const recipeModel: RecipeModel = {
@@ -40,16 +40,19 @@ export class ReceipeAddComponent {
       steps: this.getControl('steps').value,
     }
 
-    const response = this.appWriteService.createRecipe(recipeModel);
+    const response = await this.appWriteService.createRecipe(recipeModel);
     if (response != null) {
       const dialogData: ErrorDialogData = {
         message: 'Recipe Added Successfully.'
       }
-      this.dialog.open(MessageDialogComponent, {
+      const messageDialogRef = this.messageDialog.open(MessageDialogComponent, {
         data: dialogData
       });
+
+      messageDialogRef.afterClosed().subscribe(()=>{
+        this.addRecipeDialogRef.close();
+      });     
     }
-    this.dialogRef.close();
 
   }
 }

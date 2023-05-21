@@ -6,6 +6,6 @@ export interface RecipeModel {
     steps: string
 }
 
-export type RecipeType = "Starter" | "Main Course" | "Desert"
+export type RecipeType = "Starter" | "Main Course" | "Dessert"
 
-export const RecipeTypeArray: string[] = ["Starter", "Main Course", "Desert"]
+export const RecipeTypeArray: string[] = ["Starter", "Main Course", "Dessert"]
