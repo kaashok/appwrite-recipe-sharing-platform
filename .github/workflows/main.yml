@@ -25,7 +25,7 @@ jobs:
       - name: Deploy in Github Page
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         with:
-          github_access_token: ${{ secrets.ACTION }}
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
           base_href: /appwrite-recipe-sharing-platform/
           angular_project_dir: ./
           build_configuration: production
