@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '16'
+          cache: 'npm'
+      
+      - name: Install Packages
+        run: npm i
+      
+      - name: Build
+        run: npm run build  --prod
+      
+      - name: Deploy in Github Page
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+        with:
+          github_access_token: ${{ secrets.ACTION }}
+          base_href: /appwrite-recipe-sharing-platform/
+          angular_project_dir: ./
+          build_configuration: production
+          deploy_branch:  gh-pages
+          angular_dist_build_folder: dist/appwrite-recipe-sharing-platform
