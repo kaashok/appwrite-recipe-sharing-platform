@@ -1,27 +1,53 @@
-# AppwriteRecipeSharingPlatform
+# Online Recipe Sharing Platform 
+#appwrite #AppwriteHackathon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+# Team Details
+- [Ashok Kuduva Ananthan](https://github.com/kaashok)
 
-## Development server
+# Description of Project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The Online Recipe Sharing Platform is a user-friendly application designed to cater to the needs of food enthusiasts, home cooks, and professional chefs alike. With this application, users can effortlessly add and view an extensive collection of recipes from various recipes and share their culinary creations with others.
 
-## Code scaffolding
+# Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This application is developed using following technologies
+- Angular v15.2.4
+- Angular Material v15.2.9
+- Bootstrap v5.2.3
+- Github for version controlling
+- Github Actions for CI/CD 
+- Github Page for deploying this application
+- Appwrite Cloud 11.0.0
+    - Authentication
+    - Database
 
-## Build
+# Challenges We Faced 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This is my first time using third-party APIs to build an application. It was difficult to develop at first. Appwrite deserves credit for providing the documentation. 
 
-## Running unit tests
+# Public Code Repo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Here the Github Repo [link](https://github.com/kaashok/appwrite-recipe-sharing-platform)
 
-## Running end-to-end tests
+# Demo Link
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This Application is deployed in Github Page. Here is the [link](https://kaashok.github.io/appwrite-recipe-sharing-platform/)
 
-## Further help
+# Application Overview
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Login Page
+![Login Page](Resources\login.JPG?raw=true "Login Page")
+
+SignUp Page
+![Login Page](Resources\signup.JPG?raw=true "SignUp Page")
+
+Recipe View Page
+![Login Page](Resources\landingpage.JPG?raw=true "Recipe View Page")
+
+AddRecipe Page
+![Login Page](Resources\AddRecipe.JPG?raw=true "AddRecipe Page")
+
+#appwrite #AppwriteHackathon
+
+
+  
