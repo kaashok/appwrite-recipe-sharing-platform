@@ -25,6 +25,9 @@ his application is developed using the followings technologies
 
 This is my first time using third-party APIs to build an application. It was difficult to develop at first. Appwrite deserves credit for providing the documentation. 
 
+# Hashnode Blog
+Here is the Hashnod blog [link](https://ashokkuduvaananthan.hashnode.dev/)
+
 # Public Code Repo
 
 Here is the Github Repo [link](https://github.com/kaashok/appwrite-recipe-sharing-platform)
