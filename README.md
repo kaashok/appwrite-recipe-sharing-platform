@@ -10,7 +10,7 @@ The Online Recipe Sharing Platform is a user-friendly application designed to ca
 
 # Tech Stack
 
-This application is developed using following technologies
+his application is developed using the followings technologies
 - Angular v15.2.4
 - Angular Material v15.2.9
 - Bootstrap v5.2.3
@@ -27,25 +27,25 @@ This is my first time using third-party APIs to build an application. It was dif
 
 # Public Code Repo
 
-Here the Github Repo [link](https://github.com/kaashok/appwrite-recipe-sharing-platform)
+Here is the Github Repo [link](https://github.com/kaashok/appwrite-recipe-sharing-platform)
 
 # Demo Link
 
-This Application is deployed in Github Page. Here is the [link](https://kaashok.github.io/appwrite-recipe-sharing-platform/)
+This Application is deployed on Github Page. Here is the [link](https://kaashok.github.io/appwrite-recipe-sharing-platform/)
 
 # Application Overview
 
 Login Page
-![Login Page](Resources\login.JPG?raw=true "Login Page")
+![Login Page](./Resources/login.JPG?raw=true "Login Page")
 
 SignUp Page
-![Login Page](Resources\signup.JPG?raw=true "SignUp Page")
+![Login Page](./Resources/signup.JPG?raw=true "SignUp Page")
 
 Recipe View Page
-![Login Page](Resources\landingpage.JPG?raw=true "Recipe View Page")
+![Login Page](./Resources/landingpage.JPG?raw=true "Recipe View Page")
 
 AddRecipe Page
-![Login Page](Resources\AddRecipe.JPG?raw=true "AddRecipe Page")
+![Login Page](./Resources/AddRecipe.JPG?raw=true "AddRecipe Page")
 
 #appwrite #AppwriteHackathon
 
