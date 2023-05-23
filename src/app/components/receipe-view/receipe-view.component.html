@@ -1,7 +1,19 @@
 <nav class="navbar bg-dark navbar-expand-lg">
     <div class="container-fluid">
-        <a [routerLink] = "['/recipe-view']" class="navbar-brand nav-font-color">Online Recipe Sharing Platform</a>
-        <button mat-raised-button type="submit" (click)="logout()"><span class="material-icons">logout</span></button>
+        <a [routerLink]="['/recipe-view']" class="navbar-brand nav-font-color">Online Recipe Sharing Platform</a>
+        <!-- <button mat-raised-button type="submit" (click)="logout()"><span class="material-icons">logout</span></button> -->
+
+        <div class="d-flex align-items-center">
+            <div class="dropdown nav-font-color">
+                <a class="nav-link dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/avatar.jpg" class="rounded-circle" height="25"
+                        alt="Black and White Portrait of a Man" loading="lazy" /></a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </nav>
 

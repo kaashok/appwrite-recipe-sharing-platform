@@ -33,7 +33,7 @@ export class AppWriteService {
   createAccount(account: AccountModel) {
     const self = this;
     return new Promise((resolve, reject) => {
-      const promise = this.account.create(ID.unique(), account.emailId, account.password);
+      const promise = this.account.create(ID.unique(), account.emailId, account.password, account?.name);
       promise.then(function (response) {
         resolve(response);
       }, function (error) {

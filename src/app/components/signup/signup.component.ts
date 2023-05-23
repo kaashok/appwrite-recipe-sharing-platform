@@ -19,6 +19,7 @@ export class SignupComponent {
 
   constructor(private appWriteService: AppWriteService, private router: Router, private dialog: MatDialog) {
     this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
       emailId: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', [Validators.required]),
@@ -51,6 +52,7 @@ export class SignupComponent {
     if (!this.signUpForm.valid) { return; }
 
     const account: AccountModel = {
+      name: this.getControl('name')?.value,
       emailId: this.getControl('emailId')?.value,
       password: this.getControl('password')?.value
     }
