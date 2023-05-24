@@ -56,7 +56,7 @@ export class ReceipeViewComponent {
   searchApplyFilter(searchValue?: string, filterValue?: string) {
 
     // apply filter
-    if (filterValue)
+    if (filterValue !== undefined)
       if (filterValue === 'All') {
         this.filteredDataList = this.dataList;
       } else {
@@ -64,8 +64,9 @@ export class ReceipeViewComponent {
       }
 
     //apply search
-    if (searchValue)
+    if (searchValue !== undefined)
       this.filteredDataList = this.dataList.filter(item => item.name.toLowerCase().includes(searchValue));
+
   }
 
   selectItem(item: any) {
