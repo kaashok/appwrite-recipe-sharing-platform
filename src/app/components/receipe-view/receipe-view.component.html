@@ -1,8 +1,7 @@
 <nav class="navbar bg-dark navbar-expand-lg">
     <div class="container-fluid">
-        <a [routerLink]="['/recipe-view']" class="navbar-brand nav-font-color">Online Recipe Sharing Platform</a>
-        <!-- <button mat-raised-button type="submit" (click)="logout()"><span class="material-icons">logout</span></button> -->
-
+        <a [routerLink]="['/recipe-view']" class="navbar-brand nav-font-color app-title">Online Recipe Sharing
+            Platform</a>
         <div class="d-flex align-items-center">
             <div class="dropdown nav-font-color">
                 <a class="nav-link dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
@@ -23,6 +22,8 @@
     <app-app-spinner [loading]="loading"></app-app-spinner>
     <div class="container-fluid pt-2">
         <div class="row">
+          
+
             <div class="col-md-4">
                 <mat-card>
                     <mat-card-header>

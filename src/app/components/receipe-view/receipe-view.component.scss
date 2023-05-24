@@ -14,18 +14,27 @@ section {
     min-height: calc(100vh - 3.7em);
 }
 
-.receipe-list{
-    height: calc(100vh - 15.4em);    
+.receipe-list {
+    height: calc(100vh - 15.4em);
     overflow-y: auto;
 }
 
 .receipe-details {
-    height:  calc(100vh - 10.4em);   
+    height: calc(100vh - 10.4em);
     overflow-y: auto;
 }
 
-
-.custom-font{
+.custom-font {
     font-weight: bold;
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+    .app-title {
+        font-size: 19px;
+    }
+
+    .details-container {
+        padding-top: 15px;
+    }
 }
