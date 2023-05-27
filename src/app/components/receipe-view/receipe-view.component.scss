@@ -11,11 +11,11 @@
 }
 
 section {
-    min-height: calc(100vh - 3.7em);
+    min-height: calc(100vh - 3.3em);
 }
 
 .receipe-list {
-    height: calc(100vh - 15.4em);
+    height: calc(100vh - 15.1em);
     overflow-y: auto;
 }
 
@@ -36,5 +36,22 @@ section {
 
     .details-container {
         padding-top: 15px;
+    }
+}
+
+.mat-title-align-left {
+    display: inline;
+}
+
+.mat-title-align-right {
+    display: inline;
+    float: right;
+}
+
+.details-container {
+    ::ng-deep {
+        .mat-mdc-card-header-text {
+            width: 100% !important;
+        }
     }
 }

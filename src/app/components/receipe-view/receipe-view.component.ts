@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppWriteService } from 'src/app/services/app-write.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,11 +12,13 @@ import { RecipeModel, RecipeTypeArray } from 'src/app/core/dbo/Recipe';
 })
 export class ReceipeViewComponent {
   loading: boolean = false;
-  dataList: RecipeModel[] = [];
-  filteredDataList: RecipeModel[] = [];
-  selectedItem: RecipeModel | null = null;
+  recipeList: RecipeModel[] = [];
+  filteredRecipeList: RecipeModel[] = [];
+  selectedRecipe: RecipeModel | null = null;
   recipeOptions: string[] = ['All'].concat(RecipeTypeArray);
   filterRecipe: string = this.recipeOptions[0];
+  isMobile: boolean = false;
+
   constructor(private router: Router, private appWriteService: AppWriteService, private dialog: MatDialog) {
 
   }
@@ -28,9 +30,9 @@ export class ReceipeViewComponent {
   async getRecipe() {
     this.loading = true;
     const response = await this.appWriteService.getRecipeList();
-    this.dataList = response.documents;
-    this.filteredDataList = this.dataList;
-    this.selectedItem = this.filteredDataList[0];
+    this.recipeList = response.documents;
+    this.filteredRecipeList = this.recipeList;
+    this.selectedRecipe = this.filteredRecipeList[0];
     this.loading = false;
   }
 
@@ -44,12 +46,12 @@ export class ReceipeViewComponent {
 
   }
 
-  search(searchValue: any) {
+  searchRecipe(searchValue: any) {
     searchValue = searchValue.target.value.trim().toLowerCase();
     this.searchApplyFilter(searchValue)
   }
 
-  applyFilter(filterValue: string) {
+  filterRecipes(filterValue: string) {
     this.searchApplyFilter(undefined, filterValue);
   }
 
@@ -58,23 +60,45 @@ export class ReceipeViewComponent {
     // apply filter
     if (filterValue !== undefined)
       if (filterValue === 'All') {
-        this.filteredDataList = this.dataList;
+        this.filteredRecipeList = this.recipeList;
       } else {
-        this.filteredDataList = this.dataList.filter(x => x.type === filterValue);
+        this.filteredRecipeList = this.recipeList.filter(x => x.type === filterValue);
       }
 
     //apply search
     if (searchValue !== undefined)
-      this.filteredDataList = this.dataList.filter(item => item.name.toLowerCase().includes(searchValue));
+      this.filteredRecipeList = this.recipeList.filter(item => item.name.toLowerCase().includes(searchValue));
 
   }
 
-  selectItem(item: any) {
-    this.selectedItem = item;
+  selectRecipe(item: any) {
+    this.selectedRecipe = item;
+    this.makeResponsiveLayout();
   }
 
   logout() {
     this.appWriteService.updateCurrentUser('')
     this.router.navigate(['/login']);
+  }
+
+  makeResponsiveLayout() {
+    if (window.innerWidth <= 480) { // Mobile
+      this.isMobile = true;
+      this.scrollToView("recipe-details-scroll-to-bottom")
+    }
+  }
+
+  scrollToView(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView();
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if (window.innerWidth <= 480) { // Mobile
+      this.isMobile = true;
+    }
   }
 }
