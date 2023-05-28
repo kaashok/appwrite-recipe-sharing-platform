@@ -18,6 +18,7 @@ export class RecipeViewComponent {
   recipeOptions: string[] = ['All'].concat(RecipeTypeArray);
   filterRecipe: string = this.recipeOptions[0];
   isMobile: boolean = false;
+  createdOn: Date = new Date();
 
   constructor(private router: Router, private appWriteService: AppWriteService, private dialog: MatDialog) {
 
@@ -33,6 +34,7 @@ export class RecipeViewComponent {
     this.recipeList = response.documents;
     this.filteredRecipeList = this.recipeList;
     this.selectedRecipe = this.filteredRecipeList[0];
+    this.createdOn = this.getCreatedOnDate(this.selectedRecipe);
     this.loading = false;
   }
 
@@ -71,8 +73,9 @@ export class RecipeViewComponent {
 
   }
 
-  selectRecipe(item: any) {
+  selectRecipe(item: RecipeModel) {
     this.selectedRecipe = item;
+    this.createdOn = this.getCreatedOnDate(this.selectedRecipe);
     this.makeResponsiveLayout();
   }
 
@@ -100,5 +103,9 @@ export class RecipeViewComponent {
     if (window.innerWidth <= 480) { // Mobile
       this.isMobile = true;
     }
+  }
+
+  getCreatedOnDate(item: any): Date {
+    return new Date(item['$createdAt']);
   }
 }

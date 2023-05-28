@@ -29,7 +29,11 @@ export class AppWriteService {
     this.databases = new Databases(this.client);
   }
 
-
+  /**
+   * Create an account in AppWrite Auth 
+   * @param account - Account Details like EmailId & Password
+   * @returns 
+   */
   createAccount(account: AccountModel) {
     const self = this;
     return new Promise((resolve, reject) => {
@@ -39,11 +43,14 @@ export class AppWriteService {
       }, function (error) {
         self.errorhandler(error);
       });
-    })
-
-
+    });
   }
 
+  /**
+   * Login in AppWrite Auth Account 
+   * @param account Account Details like EmailId & Password
+   * @returns 
+   */
   login(account: AccountModel): Promise<any> {
     return new Promise((resolve, reject) => {
       const promise = this.account.createEmailSession(account.emailId, account.password);
@@ -55,7 +62,10 @@ export class AppWriteService {
     })
   }
 
-
+  /**
+   * 
+   * @returns Return All Recipe Details from AppWrite Database Collection  
+   */
   getRecipeList(): Promise<any> {
     const self = this;
     return new Promise((resolve, reject) => {
@@ -68,6 +78,11 @@ export class AppWriteService {
     })
   }
 
+  /**
+   * Create a Recipe in AppWrite Database Collection 
+   * @param recipe Recipe Details
+   * @returns 
+   */
   createRecipe(recipe: RecipeModel) {
     const self = this;
     return new Promise((resolve, reject) => {
@@ -81,14 +96,14 @@ export class AppWriteService {
     })
   }
 
-
+  /** Update the User Id in Observable and Session Storage */
   updateCurrentUser(userId: string) {
     this.currentUser.next(userId);
     sessionStorage.setItem('currentUser', userId);
   }
 
-
-  errorhandler(error: any) {
+ /** Errorhandler for Promise */
+  private errorhandler(error: any) {
     const dialogData: ErrorDialogData = {
       message: error?.message
     }

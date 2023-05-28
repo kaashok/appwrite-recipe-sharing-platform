@@ -30,14 +30,19 @@
                         <div class="row" style="border-bottom: 1px solid black;">
                             <div class="d-flex">
                                 <h3 class="tool-bar-buttons">Recipes Lists</h3>
-                                <button class="tool-bar-buttons" matTooltip="Add Recipe" mat-button (click)="addRecipe()"><mat-icon>add</mat-icon></button>
-                                <button class="tool-bar-buttons" matTooltip="Filter Recipe" mat-button [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
-                            </div>
-                            <div class="col-md-2">
+                                <button class="tool-bar-buttons" matTooltip="Refresh Recipe" mat-button
+                                (click)="getRecipe()"><mat-icon>refresh</mat-icon></button>
+                                <button class="tool-bar-buttons" matTooltip="Add Recipe" mat-button
+                                    (click)="addRecipe()"><mat-icon>add</mat-icon></button>
+                                <button class="tool-bar-buttons" matTooltip="Filter Recipe" mat-button
+                                    [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
                                 
                             </div>
                             <div class="col-md-2">
-                              
+
+                            </div>
+                            <div class="col-md-2">
+
                             </div>
                             <div class="col-md-12 col-12">
                                 <mat-form-field class="col-md-12 col-12">
@@ -63,6 +68,7 @@
                         <mat-card-title *ngIf="selectedRecipe===null">No Data</mat-card-title>
                         <mat-card-title class="mat-title-align-left"
                             *ngIf="selectedRecipe!==null">{{selectedRecipe.name}}</mat-card-title>
+                        <!--For Mobile View Adding a Button to Scroll top-->
                         <mat-card-title class="mat-title-align-right" *ngIf="selectedRecipe!==null && isMobile">
                             <div matTooltip="Scroll to Top" (click)="scrollToView('recipe-list-scroll-to-top')">
                                 <mat-icon>keyboard_arrow_up</mat-icon>
@@ -78,6 +84,8 @@
                                     style="height: 25px;width: 50px;">
                                 {{selectedRecipe.type}}
                             </div>
+                            <span *ngIf="selectedRecipe!==null">Created On: {{createdOn | date:'dd-MMM-yyyy hh:mm:ss
+                                a'}} </span>
                         </mat-card-subtitle>
 
 
@@ -92,7 +100,7 @@
                             <!-- <span style="white-space:pre-wrap;">{{selectedRecipe.ingredients}}</span> -->
                         </div>
                         <div class="col-md-6">
-                            <h3 class="custom-font">Steps: </h3>                            
+                            <h3 class="custom-font">Steps: </h3>
                             <div [innerHtml]='selectedRecipe.steps'>
                             </div>
                         </div>
