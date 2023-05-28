@@ -14,13 +14,13 @@ section {
     min-height: calc(100vh - 3.3em);
 }
 
-.receipe-list {
+.recipe-list {
     height: calc(100vh - 15.1em);
     overflow-y: auto;
 }
 
-.receipe-details {
-    height: calc(100vh - 10.4em);
+.recipe-details {
+    height: calc(100vh - 11.9em);
     overflow-y: auto;
 }
 
@@ -31,7 +31,7 @@ section {
 
 @media only screen and (max-width: 600px) {
     .app-title {
-        font-size: 19px;
+        font-size: 15px;
     }
 
     .details-container {

@@ -14,6 +14,7 @@ import { RecipeViewComponent } from './components/recipe-view/recipe-view.compon
 import { RecipeAddComponent } from './components/recipe-add/recipe-add.component';
 import { AppSpinnerComponent } from './shared/app-spinner/app-spinner.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AppInfoComponent } from './components/app-info/app-info.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MessageDialogComponent,
     RecipeViewComponent,
     RecipeAddComponent,
-    AppSpinnerComponent
+    AppSpinnerComponent,
+    AppInfoComponent
   ],
   imports: [
     BrowserModule,

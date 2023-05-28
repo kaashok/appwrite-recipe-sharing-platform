@@ -1,8 +1,10 @@
 <nav class="navbar bg-dark navbar-expand-lg">
     <div class="container-fluid">
         <a [routerLink]="['/recipe-view']" class="navbar-brand nav-font-color app-title">Online Recipe Sharing
-            Platform</a>
+            Platform</a>       
+
         <div class="d-flex align-items-center">
+            <button matTooltip="Info" mat-button (click)="showInfo()"><mat-icon class="nav-font-color">info</mat-icon></button>
             <div class="dropdown nav-font-color">
                 <a class="nav-link dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,12 +33,12 @@
                             <div class="d-flex">
                                 <h3 class="tool-bar-buttons">Recipes Lists</h3>
                                 <button class="tool-bar-buttons" matTooltip="Refresh Recipe" mat-button
-                                (click)="getRecipe()"><mat-icon>refresh</mat-icon></button>
+                                    (click)="getRecipe()"><mat-icon>refresh</mat-icon></button>
                                 <button class="tool-bar-buttons" matTooltip="Add Recipe" mat-button
                                     (click)="addRecipe()"><mat-icon>add</mat-icon></button>
                                 <button class="tool-bar-buttons" matTooltip="Filter Recipe" mat-button
                                     [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
-                                
+
                             </div>
                             <div class="col-md-2">
 
@@ -52,7 +54,7 @@
                             </div>
                         </div>
                     </mat-card-header>
-                    <mat-card-content class="receipe-list">
+                    <mat-card-content class="recipe-list">
                         <mat-list>
                             <mat-list-item *ngFor="let recipe of filteredRecipeList" (click)="selectRecipe(recipe)"
                                 [class.selected]="selectedRecipe === recipe" style="color:black">
@@ -90,7 +92,7 @@
 
 
                     </mat-card-header>
-                    <mat-card-content *ngIf="selectedRecipe!==null" class="row d-flex receipe-details">
+                    <mat-card-content *ngIf="selectedRecipe!==null" class="row d-flex recipe-details">
                         <div class="col-md-6">
                             <h3 class="custom-font">Ingredients: </h3>
                             <div [innerHtml]='selectedRecipe.ingredients'>

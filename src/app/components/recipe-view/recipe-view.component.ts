@@ -4,6 +4,7 @@ import { AppWriteService } from 'src/app/services/app-write.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeAddComponent } from '../recipe-add/recipe-add.component';
 import { RecipeModel, RecipeTypeArray } from 'src/app/core/dbo/Recipe';
+import { AppInfoComponent } from '../app-info/app-info.component';
 
 @Component({
   selector: 'app-recipe-view',
@@ -107,5 +108,11 @@ export class RecipeViewComponent {
 
   getCreatedOnDate(item: any): Date {
     return new Date(item['$createdAt']);
+  }
+
+  showInfo() {
+    this.dialog.open(AppInfoComponent, {      
+      width: '500px'
+    });
   }
 }
