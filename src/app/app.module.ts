@@ -10,9 +10,10 @@ import { AngularMaterialModules } from './angular-material.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
 import { MessageDialogComponent } from './shared/message-dialog/message-dialog.component';
-import { ReceipeViewComponent } from './components/receipe-view/receipe-view.component';
-import { ReceipeAddComponent } from './components/receipe-add/receipe-add.component';
+import { RecipeViewComponent } from './components/recipe-view/recipe-view.component';
+import { RecipeAddComponent } from './components/recipe-add/recipe-add.component';
 import { AppSpinnerComponent } from './shared/app-spinner/app-spinner.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import { AppSpinnerComponent } from './shared/app-spinner/app-spinner.component'
     SignupComponent,
     ErrorDialogComponent,
     MessageDialogComponent,
-    ReceipeViewComponent,
-    ReceipeAddComponent,
+    RecipeViewComponent,
+    RecipeAddComponent,
     AppSpinnerComponent
   ],
   imports: [
@@ -30,7 +31,8 @@ import { AppSpinnerComponent } from './shared/app-spinner/app-spinner.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     ...AngularMaterialModules,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

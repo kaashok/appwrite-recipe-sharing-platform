@@ -2,15 +2,15 @@ import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppWriteService } from 'src/app/services/app-write.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ReceipeAddComponent } from '../receipe-add/receipe-add.component';
+import { RecipeAddComponent } from '../recipe-add/recipe-add.component';
 import { RecipeModel, RecipeTypeArray } from 'src/app/core/dbo/Recipe';
 
 @Component({
-  selector: 'app-receipe-view',
-  templateUrl: './receipe-view.component.html',
-  styleUrls: ['./receipe-view.component.scss']
+  selector: 'app-recipe-view',
+  templateUrl: './recipe-view.component.html',
+  styleUrls: ['./recipe-view.component.scss']
 })
-export class ReceipeViewComponent {
+export class RecipeViewComponent {
   loading: boolean = false;
   recipeList: RecipeModel[] = [];
   filteredRecipeList: RecipeModel[] = [];
@@ -38,7 +38,7 @@ export class ReceipeViewComponent {
 
 
   addRecipe() {
-    const dialogRef = this.dialog.open(ReceipeAddComponent);
+    const dialogRef = this.dialog.open(RecipeAddComponent);
 
     dialogRef.afterClosed().subscribe(() => {
       this.getRecipe();

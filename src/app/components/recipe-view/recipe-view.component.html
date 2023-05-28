@@ -28,17 +28,19 @@
                 <mat-card id="recipe-list-scroll-to-top">
                     <mat-card-header>
                         <div class="row" style="border-bottom: 1px solid black;">
-                            <div class="col-md-4">
-                                <h3>Recipes Lists</h3>
+                            <div class="d-flex">
+                                <h3 class="tool-bar-buttons">Recipes Lists</h3>
+                                <button class="tool-bar-buttons" matTooltip="Add Recipe" mat-button (click)="addRecipe()"><mat-icon>add</mat-icon></button>
+                                <button class="tool-bar-buttons" matTooltip="Filter Recipe" mat-button [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
                             </div>
                             <div class="col-md-2">
-                                <button matTooltip="Add Recipe" mat-raised-button (click)="addRecipe()"><mat-icon>add</mat-icon></button>
+                                
                             </div>
                             <div class="col-md-2">
-                                <button matTooltip="Filter Recipe" mat-button [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
+                              
                             </div>
-                            <div class="col-md-12">
-                                <mat-form-field class="col-md-12">
+                            <div class="col-md-12 col-12">
+                                <mat-form-field class="col-md-12 col-12">
                                     <mat-label>Search</mat-label>
                                     <input matInput (keyup)="searchRecipe($event)" placeholder="Type to search recipe">
                                 </mat-form-field>
@@ -83,11 +85,16 @@
                     <mat-card-content *ngIf="selectedRecipe!==null" class="row d-flex receipe-details">
                         <div class="col-md-6">
                             <h3 class="custom-font">Ingredients: </h3>
-                            <span style="white-space:pre-wrap;">{{selectedRecipe.ingredients}}</span>
+                            <div [innerHtml]='selectedRecipe.ingredients'>
+
+                            </div>
+
+                            <!-- <span style="white-space:pre-wrap;">{{selectedRecipe.ingredients}}</span> -->
                         </div>
                         <div class="col-md-6">
-                            <h3 class="custom-font">Steps: </h3>
-                            <span style="white-space:pre-wrap;">{{selectedRecipe.steps}}</span>
+                            <h3 class="custom-font">Steps: </h3>                            
+                            <div [innerHtml]='selectedRecipe.steps'>
+                            </div>
                         </div>
                     </mat-card-content>
                 </mat-card>

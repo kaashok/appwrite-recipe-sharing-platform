@@ -71,7 +71,8 @@ export class AppWriteService {
   createRecipe(recipe: RecipeModel) {
     const self = this;
     return new Promise((resolve, reject) => {
-      const promise = this.databases.createDocument(environment.appWrite.databaseID, environment.appWrite.collectionID, ID.unique(), recipe);
+      const promise = this.databases.createDocument(environment.appWrite.databaseID, 
+        environment.appWrite.collectionID, ID.unique(), recipe);
       promise.then(function (response) {
         resolve(response);
       }, function (error) {
